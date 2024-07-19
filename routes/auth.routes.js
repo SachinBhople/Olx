@@ -1,10 +1,13 @@
-const adminController = require("../controllers/auth.controller")
+const authController = require("../controller/auth.controller")
 
 const router = require("express").Router()
 
+
+
 router
-    .post("/register-admin", adminController.registerAdmin)
+    .post("/register-admin", authController.registerAdmin)
+    .post("/login-admin", authController.loginAdmin)
+    .post("/verify-admin-otp", authController.verifyOTP)
 
 
 module.exports = router
-

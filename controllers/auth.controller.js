@@ -14,6 +14,7 @@ const validator = require("validator")
 const { checkEmpty } = require("../utils/checkEmpty")
 const bcrypt = require("bcryptjs")
 const Admin = require("../models/Admin")
+const sendEmail = require("../utils/email")
 
 exports.registerAdmin = asyncHandler(async (req, res) => {
     const { name, email, password } = req.body
@@ -64,4 +65,12 @@ exports.loginAdmin = asyncHandler(async (req, res) => {
 
     const otp = Math.floor(10000 + Math.random() * 900000)
 
+    await Admin.findByIdAndUpdate(result._id, { otp })
+
+    await sendEmail({
+        to: email, subject: `login otp`, message: `<h1>
+        Do not Share Otp </h1>
+        <p>your Login Otp ${otp}</p>
+        ` })
+    res.json({ messsage: "Creaditails Verify Success. Otp Send To Your Registerd email" })
 })

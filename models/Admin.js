@@ -13,6 +13,10 @@ const adminSchma = new mongoose.Schema({
     password: {
         type: String,
         required: true
+    },
+    otp: {
+        type: String,
+
     }
 }, { timestamps: true })
 

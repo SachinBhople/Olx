@@ -18,10 +18,6 @@ const userSchma = new mongoose.Schema({
         type: String,
         required: true
     },
-    cpassword: {
-        type: String,
-        required: true
-    },
     verified: {
         type: Boolean,
         default: false

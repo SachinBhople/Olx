@@ -8,6 +8,7 @@ require("dotenv").config({ path: "./.env" })
 const app = express()
 app.use(express.json())
 app.use(express.static("dist"))
+app.use(cookieParser())
 app.use(cors({
     origin: process.env.NODE_ENV === "development"
         ? "http://localhost:5173"

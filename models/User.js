@@ -18,11 +18,18 @@ const userSchma = new mongoose.Schema({
         type: String,
         required: true
     },
-    verified: {
+    mobileverified: {
         type: Boolean,
         default: false
     },
-    code: {
+    emailVerified: {
+        type: Boolean,
+        default: false
+    },
+    emailCode: {
+        type: String,
+    },
+    mobileCode: {
         type: String,
     },
     active: {

@@ -26,7 +26,7 @@ exports.verifyEmailOtp = asyncHandler(async (req, res) => {
     if (!result) {
         return res.status(401).json({ message: "You are Not Logged in Please Login Again" })
     }
-    if (otp !== result.emailCode) {
+    if (otp != result.emailCode) {
         return res.status(400).json({ message: "Invaild Otp" })
     }
     await User.findByIdAndUpdate(req.loggedInUser, { emailVerified: true })

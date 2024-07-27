@@ -38,7 +38,7 @@ exports.verifymobileOtp = asyncHandler(async (req, res) => {
     if (!result) {
         return res.status(401).json({ message: "You are Not Logged in Please Login Again" })
     }
-    if (otp !== result.mobileCode) {
+    if (otp != result.mobileCode) {
         return res.status(400).json({ message: "Invaild Otp" })
     }
     await User.findByIdAndUpdate(req.loggedInUser, { mobileverified: true })

@@ -6,6 +6,8 @@ const router = require("express").Router()
 
 router
 
-    .put("/verify-email", userProtected, userController.VerifyUserEmail)
+    .post("/verify-email", userProtected, userController.VerifyUserEmail)
+    .post("/verify-user-email-otp", userProtected, userController.verifyEmailOtp)
+    .post("/verify-user-mobile-otp", userProtected, userController.verifymobileOtp)
 
 module.exports = router
